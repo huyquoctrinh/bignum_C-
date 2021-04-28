@@ -1,2 +1,4 @@
 ﻿  Source.cpp
+C:\Users\ASUS\source\repos\ConsoleApplication14\ConsoleApplication14\Source.cpp(47): warning C4715: 'get_bin': not all control paths return a value
+C:\Users\ASUS\source\repos\ConsoleApplication14\ConsoleApplication14\Source.cpp(70): warning C4715: 'makeEqualLength': not all control paths return a value
   ConsoleApplication14.vcxproj -> C:\Users\ASUS\source\repos\ConsoleApplication14\Debug\ConsoleApplication14.exe

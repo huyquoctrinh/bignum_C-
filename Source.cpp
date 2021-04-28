@@ -1,10 +1,10 @@
 ﻿#include<iostream>
 #include<string>
+#include "Header.h"
+#include<sstream>
 #define MAX 1024
 using namespace std;
-struct bigint {
-	string data;
-};
+
 string bigint2string(bigint a) {
 	char* x = new char[MAX];
 	return x;
@@ -23,10 +23,78 @@ int getLength(bigint a) {
 }
 int getDigit(bigint a,int pos) {
 	int n = getLength(a);
-	for (int i = 0; i < n; i++) {
-		if (pos < n) {
-			return a.data[pos] - 48;
-		}
+	if (pos < n) {
+		return a.data[pos] - 48;
 	}
 	return 0;
+}
+int string2num(string a) {
+	stringstream geek(a);
+	int x = 0;
+	geek >> x;
+	return x;
+}
+int get_bin(bigint a,int pos) {
+	int n = getLength(a);
+	if (pos < n) {
+			if (a.data[pos] == 1) {
+				return 1;
+			}
+			else if (a.data[pos] == 0) {
+				return 0;
+			}
+	}
+}
+void make_equal(bigint& a, bigint& b) {
+	int n = getLength(b);
+	int na = getLength(a);
+	while ( na< n) {
+		a.data = "0" + a.data;
+		na++;
+	}
+}
+int makeEqualLength(bigint &a, bigint &b) {
+	int n1 = getLength(a);
+	int n2 = getLength(b);
+	if (n1 < n2) {
+		make_equal(a, b);
+		return n2;
+	}
+	else if (n1 > n2) {
+		make_equal(b, a);
+		return n1;
+	}
+	else if (n1 == n2) {
+		return n1;
+	}
+}
+/*
+int get_digit_bin(bigint a,int pos) {
+	int n = getLength(a);
+	for (int i = 0; i < getLength(a); i++) {
+		
+	}
+}*/
+
+bigint add_bin(bigint a, bigint b) {
+	bigint res;
+	res.data = ' ';
+	int la = getLength(a);
+	int lb = getLength(b);
+	int l = makeEqualLength(a, b);
+	int buffer = 0;
+	for (int i = l-1; i >= 0; i--) {
+		int fbit = getDigit(a, i);
+		int sbit = getDigit(b, i);
+		int sum = (fbit ^ sbit^buffer);
+		res.data = to_string(sum) + res.data;
+		if ((fbit == 1) && (sbit == 1)) {
+			buffer = 1;
+		}
+	}
+	int x = 1;
+	if (buffer == 1) {
+		res.data = to_string(x) + res.data;
+	}
+	return res;
 }
