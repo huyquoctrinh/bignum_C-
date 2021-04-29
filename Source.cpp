@@ -2,6 +2,7 @@
 #include<string>
 #include "Header.h"
 #include<sstream>
+#include<vector>
 #define MAX 1024
 using namespace std;
 
@@ -9,7 +10,7 @@ string bigint2string(bigint a) {
 	char* x = new char[MAX];
 	return x;
 }
-bigint string2bigint(string a) {
+bigint string2bigint(char* a) {
 	bigint res;
 	res.data = a;
 	return res;
@@ -122,7 +123,6 @@ bigint add_dec(bigint a, bigint b) {
 	return res;
 }
 int bin2dec(bigint n){
-	//string num = n.data;
 	int dec_value = 0;
 	int base = 1;
 
@@ -134,4 +134,28 @@ int bin2dec(bigint n){
 	}
 
 	return dec_value;
+}
+string vec2string(vector<int> v) {
+	stringstream ss;
+	for (size_t i = 0; i < v.size(); ++i)
+	{
+		if (i != 0)
+			ss << ",";
+		ss << v[i];
+	}
+	string s = ss.str();
+	return s;
+}
+int bitshift_right(bigint a, int unit) {
+	int l = getLength(a);
+	a.data.erase(a.data.begin() + (l-unit), a.data.begin() + l);
+	int kq = bin2dec(a);
+	return kq;
+}
+int bitshift_left(bigint a, int unit) {
+	int l = getLength(a);
+	a.data.erase(a.data.begin() + 0, a.data.begin() + unit);
+	a.data = a.data + '0';
+	int kq = bin2dec(a);
+	return kq;
 }

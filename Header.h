@@ -14,4 +14,6 @@ int makeEqualLength(bigint& a, bigint& b);
 bigint add_bin(bigint a, bigint b);
 bigint add_dec(bigint a, bigint b);
 int bin2dec(bigint n);
+int bitshift_right(bigint a, int unit);
+int bitshift_left(bigint a, int unit);
 #pragma once

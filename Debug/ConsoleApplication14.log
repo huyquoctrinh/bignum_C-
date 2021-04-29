@@ -1,7 +1,6 @@
 ﻿  ConsoleApplication14.cpp
-C:\Users\ASUS\source\repos\ConsoleApplication14\ConsoleApplication14\ConsoleApplication14.cpp(21,20): warning C4244: 'argument': conversion from 'unsigned __int64' to 'int', possible loss of data
   Source.cpp
   Generating Code...
-C:\Users\ASUS\source\repos\ConsoleApplication14\ConsoleApplication14\Source.cpp(47): warning C4715: 'get_bin': not all control paths return a value
-C:\Users\ASUS\source\repos\ConsoleApplication14\ConsoleApplication14\Source.cpp(70): warning C4715: 'makeEqualLength': not all control paths return a value
+C:\Users\ASUS\source\repos\ConsoleApplication14\ConsoleApplication14\Source.cpp(71): warning C4715: 'makeEqualLength': not all control paths return a value
+C:\Users\ASUS\source\repos\ConsoleApplication14\ConsoleApplication14\Source.cpp(48): warning C4715: 'get_bin': not all control paths return a value
   ConsoleApplication14.vcxproj -> C:\Users\ASUS\source\repos\ConsoleApplication14\Debug\ConsoleApplication14.exe
