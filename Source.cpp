@@ -91,10 +91,47 @@ bigint add_bin(bigint a, bigint b) {
 		if ((fbit == 1) && (sbit == 1)) {
 			buffer = 1;
 		}
+		else {
+			buffer = 0;
+		}
 	}
 	int x = 1;
 	if (buffer == 1) {
 		res.data = to_string(x) + res.data;
 	}
 	return res;
+}
+bigint add_dec(bigint a, bigint b) {
+	bigint res;
+	int la = getLength(a);
+	int lb = getLength(b);
+	int l = makeEqualLength(a, b);
+	int buffer = 0;
+	for (int i = l - 1; i >= 0; i--) {
+		int fnum = getDigit(a, i);
+		int snum = getDigit(b, i);
+		int sum = fnum + snum + buffer;
+		res.data = to_string(sum % 10) + res.data;
+		if (sum > 10) {
+			buffer = 1;
+		}
+		else {
+			buffer = 0;
+		}
+	}
+	return res;
+}
+int bin2dec(bigint n){
+	//string num = n.data;
+	int dec_value = 0;
+	int base = 1;
+
+	int len = getLength(n);
+	for (int i = len - 1; i >= 0; i--) {
+		if (n.data[i] == '1')
+			dec_value += base;
+		base = base * 2;
+	}
+
+	return dec_value;
 }
